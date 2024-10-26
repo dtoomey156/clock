@@ -28,26 +28,31 @@ setInterval(clock, 1000);
 function clock() {
   const date = new Date();
   // console.log({ date });
+
+  // will build out this object with more properties like date, etc. for future use
   const time = {
-    hour: date.getHours().toString(),
-    minutes: date.getMinutes().toString(),
-    seconds: date.getSeconds().toString(),
+    militaryHour: date.getHours(),
+    regularHour: "",
+    minutes: date.getMinutes(),
+    seconds: date.getSeconds(),
   };
-  const militaryTime = date.getHours().toString();
-  let regularTime = "";
-  // const regularTime = militaryTime - 12;
+
   (function timeConversion() {
-    if (Number(militaryTime) > 12) {
-      regularTime = militaryTime.toString() - 12;
+    if (time.militaryHour > 12) {
+      time.regularHour = time.militaryHour - 12;
     } else {
-      regularTime = militaryTime;
+      time.regularHour = time.militaryHour;
     }
   })();
-  document.querySelector(".hourContainer").textContent = regularTime + ":";
+
+  // Render to hour container
+  document.querySelector(".hourContainer").textContent =
+    time.regularHour.toString() + ":";
+  // Render to minute container
   document.querySelector(".minuteContainer").textContent =
-    date.getMinutes().toString().padStart(2, "0") + ":";
-  document.querySelector(".secondContainer").textContent = date
-    .getSeconds()
+    time.minutes.toString().padStart(2, "0") + ":";
+  // Render to seconds container
+  document.querySelector(".secondContainer").textContent = time.seconds
     .toString()
     .padStart(2, "0");
 }
