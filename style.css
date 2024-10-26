@@ -1,0 +1,64 @@
+:root {
+  font-size: 62.5%;
+  --main-color: #0d6efd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "clock3";
+  src: url(/font/clock3.ttf) format("truetype");
+}
+
+body {
+  font-size: 1.6rem;
+  min-height: 100vh;
+  background-color: aliceblue;
+}
+
+.flexContainer {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clockContainer {
+  position: relative;
+  border: 0.3rem solid var(--main-color);
+  width: 20vw;
+  min-width: 15rem;
+  height: 10vh;
+  min-height: 5rem;
+  border-radius: 1rem;
+}
+
+.display {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2%;
+  border: 0.2rem solid var(--main-color);
+  inset: 20% 10%;
+  border-radius: 0.7rem;
+}
+
+.hourContainer,
+.colonContainer,
+.minuteContainer,
+.secondContainer {
+  font-family: "clock3";
+  font-size: calc(1rem + 0.5vw);
+  color: var(--main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 0.2rem solid var(--main-color); */
+  width: 20%;
+  height: 80%;
+}
